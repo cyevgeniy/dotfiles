@@ -122,11 +122,18 @@
   :custom
   (css-indent-offset 2))
 
+(use-package god-mode
+  :ensure t)
+
+(require 'god-mode)
+(god-mode)
+(global-set-key (kbd "<escape>") #'god-mode-all)
+
 ;; Enable vertico
-(use-package vertico
-  :ensure t
-  :init
-  (vertico-mode)
+;;(use-package vertico
+;;  :ensure t
+;;  :init
+;;  (vertico-mode)
 
   ;; Different scroll margin
   ;; (setq vertico-scroll-margin 0)
@@ -139,7 +146,22 @@
 
   ;; Optionally enable cycling for `vertico-next' and `vertico-previous'.
   ;; (setq vertico-cycle t)
+;;  )
+
+(use-package ido-vertical-mode
+  :ensure t
   )
+
+(setq ido-vertical-define-keys 'C-n-and-C-p-only)
+
+(require 'ido-vertical-mode)
+(ido-mode 1)
+(ido-vertical-mode 1)
+
+
+(setq read-file-name-completion-ignore-case t
+      read-buffer-completion-ignore-case t
+      completion-ignore-case t)
 
 
 (use-package crux
@@ -206,14 +228,13 @@
 (setq make-backup-files nil)
 (setq auto-save-list-file-name nil);; common
 (global-set-key (kbd "<f1>") 'ibuffer)
-;;; init.el ends here
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
-   '(key-chord zop-to-char zenburn-theme yaml-mode which-key web-mode volatile-highlights vertico utop use-package undo-tree super-save rust-mode rainbow-mode rainbow-delimiters pt projectile paredit orderless move-text merlin-eldoc markdown-mode marginalia magit keycast inf-ruby inf-clojure imenu-anywhere hl-todo haskell-mode git-timemachine gif-screencast flycheck-ocaml flycheck-joker flycheck-eldev expand-region exec-path-from-shell erlang elixir-mode elisp-slime-nav eglot easy-kill dune diminish diff-hl crux corfu consult company cider cask-mode anzu ag adoc-mode ace-window)))
+   '(ido-vertical-mode evil elpher key-chord zop-to-char zenburn-theme yaml-mode which-key web-mode volatile-highlights vertico utop use-package undo-tree super-save rust-mode rainbow-mode rainbow-delimiters pt projectile paredit orderless move-text merlin-eldoc markdown-mode marginalia magit keycast inf-ruby inf-clojure imenu-anywhere hl-todo haskell-mode git-timemachine gif-screencast flycheck-ocaml flycheck-joker flycheck-eldev expand-region exec-path-from-shell erlang elixir-mode elisp-slime-nav eglot easy-kill dune diminish diff-hl crux corfu consult company cider cask-mode anzu ag adoc-mode ace-window)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
