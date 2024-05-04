@@ -163,7 +163,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
   end
 })
 
-require'lspconfig'.volar.setup{
-  filetypes = {'typescript', 'javascript', 'javascriptreact', 'typescriptreact', 'vue', 'json'}
-}
-require'lspconfig'.eslint.setup{}
+--require'lspconfig'.volar.setup{
+--  filetypes = {'typescript', 'javascript', 'javascriptreact', 'typescriptreact', 'vue', 'json'}
+--}
+--require'lspconfig'.eslint.setup{}

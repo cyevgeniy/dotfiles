@@ -129,8 +129,25 @@
 (god-mode)
 (global-set-key (kbd "<escape>") #'god-mode-all)
 
-;; Enable vertico
-;;(use-package vertico
+(use-package gnu-elpa-keyring-update
+  :ensure t)
+
+(use-package zenburn-theme
+  :ensure t
+  :load-path "themes"
+  :init
+  :config
+  (load-theme 'zenburn t)
+  )
+
+;;; Appearance
+(defun rc/get-default-font ()
+  (cond
+   ((eq system-type 'windows-nt) "Consolas-13")
+   ((eq system-type 'gnu/linux) "Iosevka-13")))
+
+(add-to-list 'default-frame-alist `(font . ,(rc/get-default-font)))
+;; (use-package vertico
 ;;  :ensure t
 ;;  :init
 ;;  (vertico-mode)
@@ -234,7 +251,7 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
-   '(ido-vertical-mode evil elpher key-chord zop-to-char zenburn-theme yaml-mode which-key web-mode volatile-highlights vertico utop use-package undo-tree super-save rust-mode rainbow-mode rainbow-delimiters pt projectile paredit orderless move-text merlin-eldoc markdown-mode marginalia magit keycast inf-ruby inf-clojure imenu-anywhere hl-todo haskell-mode git-timemachine gif-screencast flycheck-ocaml flycheck-joker flycheck-eldev expand-region exec-path-from-shell erlang elixir-mode elisp-slime-nav eglot easy-kill dune diminish diff-hl crux corfu consult company cider cask-mode anzu ag adoc-mode ace-window)))
+   '(gnu-elpa-keyring-update deadgrep ido-vertical-mode evil elpher key-chord zop-to-char zenburn-theme yaml-mode which-key web-mode volatile-highlights vertico utop use-package undo-tree super-save rust-mode rainbow-mode rainbow-delimiters pt projectile paredit orderless move-text merlin-eldoc markdown-mode marginalia magit keycast inf-ruby inf-clojure imenu-anywhere hl-todo haskell-mode git-timemachine gif-screencast flycheck-ocaml flycheck-joker flycheck-eldev expand-region exec-path-from-shell erlang elixir-mode elisp-slime-nav eglot easy-kill dune diminish diff-hl crux corfu consult company cider cask-mode anzu ag adoc-mode ace-window)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
