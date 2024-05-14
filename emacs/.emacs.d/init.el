@@ -23,6 +23,11 @@
 ;; the blinking cursor is nothing, but an annoyance
 (blink-cursor-mode -1)
 
+;; Delete word instead of symbol
+(global-set-key (kbd "<backspace>") 'backward-kill-word)
+
+(global-font-lock-mode -1)
+
 ;; disable the annoying bell ring
 (setq ring-bell-function 'ignore)
 
@@ -107,14 +112,14 @@
 
 (use-package web-mode
   :ensure t
-  :mode (("\\.html?\\'" . web-mode)
-         ("\\.vue\\'" . web-mode))
+  :mode (("\\.html?\\'" . web-mode))
   :custom
   (web-mode-markup-indent-offset 2)
   (web-mode-css-indent-offset 2)
   (web-mode-code-indent-offset 2)
   (web-mode-script-padding 0)
   ;; Vue-mode setup
+  :config
   (define-derived-mode vue-mode web-mode "Vue")
   (add-to-list 'auto-mode-alist '("\\.vue\\'" . vue-mode)))
 
@@ -199,7 +204,9 @@
          ([(shift return)] . crux-smart-open-line)
          ([(control shift return)] . crux-smart-open-line-above)
          ([remap kill-whole-line] . crux-kill-whole-line)
-         ("C-c s" . crux-ispell-word-then-abbrev)))
+         ))
+
+(global-set-key (kbd "C-c s") 'deadgrep)
 
 (use-package ace-window
   :ensure t
