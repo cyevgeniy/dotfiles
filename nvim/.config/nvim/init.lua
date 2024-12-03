@@ -216,6 +216,7 @@ if not vim.loop.fs_stat(lazypath) then
 end ---@diagnostic disable-next-line: undefined-field
 vim.opt.rtp:prepend(lazypath)
 
+
 -- [[ Configure and install plugins ]]
 --
 --  To check the current status of your plugins, run
@@ -638,6 +639,7 @@ require('lazy').setup({
       --  into multiple repos for maintenance purposes.
       'hrsh7th/cmp-nvim-lsp',
       'hrsh7th/cmp-path',
+      'hrsh7th/cmp-buffer',
     },
     config = function()
       -- See `:help cmp`
@@ -703,6 +705,7 @@ require('lazy').setup({
           { name = 'nvim_lsp' },
           { name = 'luasnip' },
           { name = 'path' },
+          { name = 'buffer'},
         },
       }
     end,
@@ -795,6 +798,14 @@ require('lazy').setup({
       --    - Show your current context: https://github.com/nvim-treesitter/nvim-treesitter-context
       --    - Treesitter + textobjects: https://github.com/nvim-treesitter/nvim-treesitter-textobjects
     end,
+  },
+  {
+    'ggandor/leap.nvim',
+    config = function()
+      vim.keymap.set({'n', 'x', 'o'}, 's',  '<Plug>(leap-forward)')
+      vim.keymap.set({'n', 'x', 'o'}, 'S',  '<Plug>(leap-backward)')
+      vim.keymap.set({'n', 'x', 'o'}, 'gs', '<Plug>(leap-from-window)')
+    end
   },
 
   -- The following two comments only work if you have downloaded the kickstart repo, not just copy pasted the
