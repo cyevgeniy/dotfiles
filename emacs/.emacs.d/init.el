@@ -26,7 +26,7 @@
 ;; Delete word instead of symbol
 (global-set-key (kbd "<backspace>") 'backward-kill-word)
 
-(global-font-lock-mode -1)
+;;(global-font-lock-mode -1)
 
 ;; disable the annoying bell ring
 (setq ring-bell-function 'ignore)
@@ -206,7 +206,10 @@
          ([remap kill-whole-line] . crux-kill-whole-line)
          ))
 
-(global-set-key (kbd "C-c s") 'deadgrep)
+(use-package deadgrep
+  :ensure t
+  :config
+  (global-set-key (kbd "C-c s") 'deadgrep))
 
 (use-package ace-window
   :ensure t
@@ -224,6 +227,12 @@
   :ensure t)
 
 (use-package typescript-mode
+  :ensure t)
+
+(use-package markdown-mode
+  :ensure t)
+
+(use-package editorconfig
   :ensure t)
 
 ;; ido
@@ -258,7 +267,7 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
-   '(gnu-elpa-keyring-update deadgrep ido-vertical-mode evil elpher key-chord zop-to-char zenburn-theme yaml-mode which-key web-mode volatile-highlights vertico utop use-package undo-tree super-save rust-mode rainbow-mode rainbow-delimiters pt projectile paredit orderless move-text merlin-eldoc markdown-mode marginalia magit keycast inf-ruby inf-clojure imenu-anywhere hl-todo haskell-mode git-timemachine gif-screencast flycheck-ocaml flycheck-joker flycheck-eldev expand-region exec-path-from-shell erlang elixir-mode elisp-slime-nav eglot easy-kill dune diminish diff-hl crux corfu consult company cider cask-mode anzu ag adoc-mode ace-window)))
+   '(deadgrep editorconfig gnu-elpa-keyring-update ido-vertical-mode evil elpher key-chord zop-to-char zenburn-theme yaml-mode which-key web-mode volatile-highlights vertico utop use-package undo-tree super-save rust-mode rainbow-mode rainbow-delimiters pt projectile paredit orderless move-text merlin-eldoc markdown-mode marginalia magit keycast inf-ruby inf-clojure imenu-anywhere hl-todo haskell-mode git-timemachine gif-screencast flycheck-ocaml flycheck-joker flycheck-eldev expand-region exec-path-from-shell erlang elixir-mode elisp-slime-nav eglot easy-kill dune diminish diff-hl crux corfu consult company cider cask-mode anzu ag adoc-mode ace-window)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
