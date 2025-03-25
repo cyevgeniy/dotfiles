@@ -24,7 +24,7 @@
 (blink-cursor-mode -1)
 
 ;; Delete word instead of symbol
-(global-set-key (kbd "<backspace>") 'backward-kill-word)
+;;(global-set-key (kbd "<backspace>") 'backward-kill-word)
 
 ;;(global-font-lock-mode -1)
 
