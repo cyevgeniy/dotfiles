@@ -112,18 +112,19 @@
   (global-set-key (kbd "M-p") 'projectile-find-file)
   (projectile-mode +1))
 
+
+;; https://sqrtminusone.xyz/configs/emacs/#web-mode
 (use-package web-mode
-  :ensure t
-  :mode (("\\.html?\\'" . web-mode))
-  :custom
-  (web-mode-markup-indent-offset 2)
-  (web-mode-css-indent-offset 2)
-  (web-mode-code-indent-offset 2)
-  (web-mode-script-padding 0)
-  ;; Vue-mode setup
+  :commands (web-mode)
+  :init
+  (add-to-list 'auto-mode-alist '("\\.vue\\'" . web-mode))
   :config
-  (define-derived-mode vue-mode web-mode "Vue")
-  (add-to-list 'auto-mode-alist '("\\.vue\\'" . vue-mode)))
+  (add-hook 'web-mode-hook 'smartparens-mode)
+  (with-eval-after-load 'editorconfig
+    (push
+     'standard-indent
+     (alist-get 'web-mode editorconfig-indentation-alist)))
+  (setq web-mode-auto-pairs nil))
 
 (use-package css-mode
   :custom
