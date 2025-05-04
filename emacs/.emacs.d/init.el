@@ -130,6 +130,9 @@
   :custom
   (css-indent-offset 2))
 
+(use-package go-mode
+  :ensure t)
+
 (use-package gnu-elpa-keyring-update
   :ensure t)
 
@@ -148,23 +151,6 @@
    ((eq system-type 'gnu/linux) "Iosevka-13")))
 
 (add-to-list 'default-frame-alist `(font . ,(rc/get-default-font)))
-;; (use-package vertico
-;;  :ensure t
-;;  :init
-;;  (vertico-mode)
-
-  ;; Different scroll margin
-  ;; (setq vertico-scroll-margin 0)
-
-  ;; Show more candidates
-  ;; (setq vertico-count 20)
-
-  ;; Grow and shrink the Vertico minibuffer
-  ;; (setq vertico-resize t)
-
-  ;; Optionally enable cycling for `vertico-next' and `vertico-previous'.
-  ;; (setq vertico-cycle t)
-;;  )
 
 (use-package ido-vertical-mode
   :ensure t
@@ -262,7 +248,10 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(package-selected-packages nil))
+ '(package-selected-packages
+   '(ace-window company crux deadgrep git-gutter gnu-elpa-keyring-update
+                go-mode god-mode ido-vertical-mode magit markdown-mode
+                projectile typescript-mode web-mode zenburn-theme)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
