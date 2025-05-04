@@ -130,13 +130,6 @@
   :custom
   (css-indent-offset 2))
 
-(use-package god-mode
-  :ensure t)
-
-(require 'god-mode)
-(god-mode)
-(global-set-key (kbd "<escape>") #'god-mode-all)
-
 (use-package gnu-elpa-keyring-update
   :ensure t)
 
